@@ -79,25 +79,26 @@ agregar los gets en cada maquina para que asi pudieran acceder a los valores pri
 
 a) La fresadora acumula 180 s, pero reporta 360 pzas/h. ¿Por qué un cálculo usó 60 s y el otro 10 s?
 
-[Inserta aquí tu respuesta]
+por que en uno esta utilizando los valores y munciones de la clase base maquina
 
 b) ¿Tu compilador mostró alguna advertencia antes de usar `override`? ¿Qué mensaje dio después de agregar `override`?
 
-[Inserta aquí tu respuesta]
+No mostro ninguna advertencia,  Torno T-01 | piezas: 3 | tiempo: 135 | capacidad: 80 pzas/h s
+Fresadora F-01 | piezas: 3 | tiempo: 180 | capacidad: 60 pzas/h s
 
 **3.3 Etapa 3. La línea de producción**
 
 a) ¿Por qué la línea procesó todo como "generico" si `procesar()` ya es virtual?
 
-[Inserta aquí tu respuesta]
+por que sigue usando la version declarada en la clase base
 
 b) ¿Por qué el torno y la fresadora originales quedaron con 0 piezas?
 
-[Inserta aquí tu respuesta]
+no esta guardando una version anterior de loas maquinas, sino muestra las plantillas vacias
 
 c) La relación entre `ControlDeLinea` y `Maquina`, ¿es composición o agregación? ¿Por qué?
 
-[Inserta aquí tu respuesta]
+agregacion, por que es algo escencial para el funcionamiento
 
 **3.4 Etapa 4. Destructores**
 
