@@ -66,15 +66,14 @@ por que primero agrega el teimpo de su respectivo .cpp pero luego agrega el tiem
 
 a) ¿Qué regla de la sección 1.2 rompió `torno.piezasProcesadas = -5;`?
 
-[Inserta aquí tu respuesta]
+el numero de piezas nunca debe ser negativo
 
 b) ¿De dónde salió la máquina "Fantasma"? ¿Qué hizo el compilador sin que se lo pidieras?
 
-[Inserta aquí tu respuesta]
-
+de un std::string el compilador, lo asigno como una maquina clase vacia
 c) ¿Qué tuviste que cambiar en `Torno` y `Fresadora` y por qué?
 
-[Inserta aquí tu respuesta]
+agregar los gets en cada maquina para que asi pudieran acceder a los valores primados
 
 **3.2 Etapa 2. Virtual y override**
 

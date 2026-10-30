@@ -3,6 +3,7 @@
 #include "Torno.h"
 
 #include <iostream>
+#include <string>
 
 // Ejecuta varios ciclos de cualquier maquina de la planta.
 void ejecutarTurno(Maquina& m, int ciclos) {
@@ -11,8 +12,10 @@ void ejecutarTurno(Maquina& m, int ciclos) {
     }
 }
 
+
+
 int main() {
-    Torno torno("Torno T-01");
+   Torno torno("Torno T-01");
     Fresadora fresadora("Fresadora F-01");
 
     std::cout << "--- Llamada directa ---\n";

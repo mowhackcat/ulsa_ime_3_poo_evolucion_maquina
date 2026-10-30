@@ -5,7 +5,7 @@
 Fresadora::Fresadora(const std::string& nombre) : Maquina(nombre) {}
 
 void Fresadora::procesar() {
-    std::cout << nombre << ": freseando pieza\n";
-    piezasProcesadas++;
-    tiempoTrabajadoSeg += 60;
+    std::cout << getNombre() << ": freseando pieza\n";
+    registrarPieza();
+    agregarTiempo(60);
 }
