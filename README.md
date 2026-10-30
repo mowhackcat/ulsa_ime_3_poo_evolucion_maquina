@@ -104,17 +104,26 @@ agregacion, por que es algo escencial para el funcionamiento
 
 | Momento | Mensajes de destrucción que aparecieron |
 | --- | --- |
-| `delete temporal;` sin destructor virtual | _____ |
-| `delete temporal;` con destructor virtual | _____ |
-| Al terminar `main` (torno y fresadora) | _____ |
+| `delete temporal;` sin destructor virtual | Destruyendo Maquina|
+| `delete temporal;` con destructor virtual |   Destruyendo Torno
+destruyendo Motor
+Destryuendo Maquina |
+| Al terminar `main` (torno y fresadora) |   Destruyendo Torno
+destruyendo Motor
+Destryuendo Maquina |
 
 a) ¿Qué advertencia mostró el compilador? ¿Por qué decimos que ya te estaba avisando del problema?
 
-[Inserta aquí tu respuesta]
+src/main.cpp: In function 'int main()':
+src/main.cpp:20:5: warning: deleting object of polymorphic class type 'Maquina' which has non-virtual destructor might cause undefined behavior [-Wdelete-non-virtual-dtor]
+   20 |     delete temporal;
+      |     ^~~~~~~~~~~~~~~
+
+      por que es el compilador mismo que te dice en donde se encuentra el problema
 
 b) ¿Por qué el torno de `main` sí se destruyó completo aunque el destructor no fuera virtual? ¿A qué máquina corresponde el primer "Destruyendo Maquina" después de "Fin de main"?
 
-[Inserta aquí tu respuesta]
+al terminar se llaman sus propios destructores
 
 **3.5 Etapa 5. La clase abstracta**
 

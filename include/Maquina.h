@@ -25,6 +25,7 @@ explicit Maquina(const std::string& nombre);
     int getPiezasProcesadas() const;
     int getTiempoTrabajadoSeg() const;
     void mostrarEstado() const;
+   virtual ~Maquina();
 };
 
 #endif

@@ -5,7 +5,7 @@
  bool ControlDeLinea::agregar(Maquina* maquina) {
     if(maquina == nullptr){
         return false;
-    } else 
+    }
     maquinas.push_back(maquina);
     return true;
 }

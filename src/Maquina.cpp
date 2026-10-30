@@ -51,3 +51,5 @@ return 10;
     double Maquina::capacidadPorHora() const{
         return 3600.0 / tiempoCicloSeg();
     }
+
+    Maquina::~Maquina(){}
