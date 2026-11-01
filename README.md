@@ -129,11 +129,23 @@ al terminar se llaman sus propios destructores
 
 a) Copia los mensajes de error y explica con tus palabras qué dice cada uno.
 
-[Inserta aquí tu respuesta]
+src/main.cpp:10:14: error: cannot declare variable 'pulidora' to be of abstract type 'Pulidora'
+include/Pulidora.h:6:7: note:   because the following virtual functions are pure within 'Pulidora':
+include/Maquina.h:21:18: note:     'virtual void Maquina::procesar()'
+no se puede declarar pulidora del tipo Pulidora por que contiene funciones virtuales no declaradas
+
+
+src/main.cpp:11:13: error: cannot declare variable 'generica' to be of abstract type 'Maquina'
+include/Maquina.h:6:7: note:   because the following virtual functions are pure within 'Maquina':
+include/Maquina.h:21:18: note:     'virtual void Maquina::procesar()'
+include/Maquina.h:22:17: note:     'virtual int Maquina::tiempoCicloSeg() const'
+no se puede declarar generica del tipo maquina gracias a que las funciones virtuales contienen  = 0 ademas que no se les da un "como"
+
+
 
 b) ¿Por qué es mejor este error de compilación que el comportamiento "generico" de antes?
 
-[Inserta aquí tu respuesta]
+no permite que el programa realize el proceso de forma incorrecta o sin tener todo lo necesario
 
 **3.6 Etapa 6. El contrato que el compilador no ve**
 
