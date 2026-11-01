@@ -36,11 +36,12 @@ el codigo podria no funcionar o la maquina no presentaria el comportamiento debi
 
 | Elemento | Etapa 0 | Etapa 9 | Etapa que lo cambió |
 | --- | --- | --- | --- |
-| Visibilidad de los atributos de `Maquina` | _____ | _____ | _____ |
-| `procesar()` | _____ | _____ | _____ |
-| `tiempoCicloSeg()` | _____ | _____ | _____ |
-| Destructor de `Maquina` | _____ | _____ | _____ |
-| ¿Se pueden crear objetos `Maquina`? | _____ | _____ | _____ |
+| Visibilidad de los atributos de `Maquina` | public | private, protected, public | etapa 1 |
+| `procesar()` | void procesar(); | virtual void procesar()... | etapa 2 |
+| `tiempoCicloSeg()` | int tiempoCicloSeg() | virtual int tiempoCicloSeg()... | etapa 2 |
+| Destructor de `Maquina` | no existia | virtual ~Maquina() = default | etapa 4 |
+| ¿Se pueden crear objetos `Maquina`? | antes se creaban maquinas que no existian | virtual void procesar() = 0;
+    virtual int tiempoCicloSeg() const = 0; | etapa 5 |
 | Relación `ControlDeLinea` - `Maquina` | _____ | _____ | _____ |
 | Relación `Torno` - `Motor` | _____ | _____ | _____ |
 | Relación `BandaTransportadora` - `Motor` | _____ | _____ | _____ |
@@ -151,15 +152,15 @@ no permite que el programa realize el proceso de forma incorrecta o sin tener to
 
 a) ¿Qué partes del contrato violó `InspeccionVisual`?
 
-[Inserta aquí tu respuesta]
+contrato de proccesar, su funcion solo llama a que devuelva su nombre, no las piezas procesadas ni los segundos
 
 b) ¿Por qué el compilador no lo detectó?
 
-[Inserta aquí tu respuesta]
+tecnicamente todo esta en orden, utiliza la funcion por defecto establecida en maquina
 
 c) ¿Qué pasaría si el próximo equipo tampoco lee el comentario del contrato?
 
-[Inserta aquí tu respuesta]
+se llegarian a romper las reglas que siempre deben cumplirse
 
 **3.7 Etapa 7. La base hace cumplir el contrato**
 
