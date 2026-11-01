@@ -7,6 +7,7 @@
 #include <iostream>
 
 int main() {
+try{
     Torno torno("Torno T-01");
     Fresadora fresadora("Fresadora F-01");
     Pulidora pulidora("Pulidora P-01");
@@ -17,15 +18,18 @@ int main() {
     linea.agregar(&torno);
     linea.agregar(&fresadora);
     linea.agregar(&pulidora);
-     linea.agregar(&inspeccion);
+    linea.agregar(&inspeccion);
+
 
     linea.ejecutarTurno(2);
     linea.imprimirReporte();
 
-    std::cout << "--- Experimento: destruir a traves de la base ---\n";
-    Maquina* temporal = new Torno("Torno T-99");
-    delete temporal;
+
 
     std::cout << "--- Fin de main ---\n";
     return 0;
+} catch (const std::exception& e) {
+        std::cout << "Error: " << e.what() << '\n';
+        return 1;
+    }
 }

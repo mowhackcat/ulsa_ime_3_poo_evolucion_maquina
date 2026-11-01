@@ -166,15 +166,15 @@ se llegarian a romper las reglas que siempre deben cumplirse
 
 a) ¿Cómo puede una clase derivada sobrescribir un método que es privado en la base?
 
-[Inserta aquí tu respuesta]
+con la funcion override
 
 b) ¿Qué ocurre ahora con una máquina cuyo tiempo de ciclo es 0? Compáralo con la Etapa 6.
 
-[Inserta aquí tu respuesta]
+ Error: Inspeccion I-01: tiempoCicloSeg() debe ser mayor que cero
 
 c) ¿Por qué la línea ignoró el "atajo" del torno, pero la llamada directa no? ¿Cómo corregiste el diseño?
 
-[Inserta aquí tu respuesta]
+por que en procesar utiliza el ejecutar ciclo declarado en maquina, sin sobre escribir su la forma en que lo hace, la llamada directa utiliza el override, para que la llamada se realize de foma correcta se necesita usar override
 
 **3.8 Etapa 8. Herencia mal usada**
 

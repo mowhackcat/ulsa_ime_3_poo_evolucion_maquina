@@ -4,11 +4,9 @@
 
 Torno::Torno(const std::string& nombre) : Maquina(nombre), husillo(3000.0) {}
 
-void Torno::procesar() {
+void Torno::ejecutarCiclo() {
     husillo.fijarVelocidad(1200.0);
     std::cout << getNombre()<<": torneando pieza a " << husillo.getVelocidad() << "\n ";
-    registrarPieza();
-    agregarTiempo(tiempoCicloSeg());
 }
 
     int Torno::tiempoCicloSeg() const {

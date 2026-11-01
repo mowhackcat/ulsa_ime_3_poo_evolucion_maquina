@@ -7,13 +7,14 @@
 class Torno : public Maquina {
 private:
     Motor husillo;
+    void ejecutarCiclo() override;
 
 public:
     explicit Torno(const std::string& nombre);
     ~Torno();
 
-    void procesar() override;
     int tiempoCicloSeg() const override;
+
 };
 
 #endif

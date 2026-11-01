@@ -17,6 +17,20 @@ void Maquina::agregarTiempo(int segundos){
     tiempoTrabajadoSeg += segundos;
 }
 
+int Maquina::tiempoCicloValidado() const{
+    if(tiempoCicloSeg() <= 0){
+        throw std::invalid_argument(nombre + ": tiempoCicloSeg() debe ser mayor que cero");
+    } else {
+        return tiempoCicloSeg();
+    }
+}
+
+void Maquina::procesar(){
+tiempoCicloValidado();
+registrarPieza();
+ejecutarCiclo();
+}
+
 void Maquina::registrarPieza(){
     piezasProcesadas ++;
 }
