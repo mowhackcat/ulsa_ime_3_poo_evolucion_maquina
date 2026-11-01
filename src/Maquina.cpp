@@ -26,7 +26,7 @@ int Maquina::tiempoCicloValidado() const{
 }
 
 void Maquina::procesar(){
-tiempoCicloValidado();
+agregarTiempo(tiempoCicloValidado());
 registrarPieza();
 ejecutarCiclo();
 }

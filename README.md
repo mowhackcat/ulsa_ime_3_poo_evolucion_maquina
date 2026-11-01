@@ -99,7 +99,7 @@ no esta guardando una version anterior de loas maquinas, sino muestra las planti
 
 c) La relación entre `ControlDeLinea` y `Maquina`, ¿es composición o agregación? ¿Por qué?
 
-agregacion, por que es algo escencial para el funcionamiento
+agregacion, por que la linea de control es independiente a la maquina
 
 **3.4 Etapa 4. Destructores**
 
@@ -180,11 +180,12 @@ por que en procesar utiliza el ejecutar ciclo declarado en maquina, sin sobre es
 
 a) Da al menos dos razones por las que `BandaTransportadora : public Motor` es un error de diseño.
 
-[Inserta aquí tu respuesta]
+1.-por como esta, la banda transportadora NO es un motor, es un tipo de maquina
+2.-La banda deberia contener un motor
 
 b) La relación entre `BandaTransportadora` y `Motor`, ¿es composición o agregación? ¿Por qué?
 
-[Inserta aquí tu respuesta]
+composicion
 
 **3.9 Etapa 9. La librería y la prueba final**
 

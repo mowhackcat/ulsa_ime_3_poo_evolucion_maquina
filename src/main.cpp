@@ -3,6 +3,7 @@
 #include "Torno.h"
 #include "Pulidora.h"
 #include "InspeccionVisual.h"
+#include "BandaTransportadora.h"
 
 #include <iostream>
 
@@ -12,6 +13,7 @@ try{
     Fresadora fresadora("Fresadora F-01");
     Pulidora pulidora("Pulidora P-01");
     InspeccionVisual inspeccion("Inspeccion I-01");
+    BandaTransportadora banda("Banda B-01");
     
 
     ControlDeLinea linea;
@@ -19,6 +21,7 @@ try{
     linea.agregar(&fresadora);
     linea.agregar(&pulidora);
     linea.agregar(&inspeccion);
+    linea.agregar(&banda);
 
 
     linea.ejecutarTurno(2);
