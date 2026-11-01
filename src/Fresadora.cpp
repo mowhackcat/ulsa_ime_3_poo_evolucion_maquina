@@ -1,7 +1,7 @@
 #include "Fresadora.h"
 
 #include <iostream>
-
+namespace planta{
 Fresadora::Fresadora(const std::string& nombre) : Maquina(nombre) {}
 
 void Fresadora::ejecutarCiclo() {
@@ -11,3 +11,4 @@ void Fresadora::ejecutarCiclo() {
 int Fresadora::tiempoCicloSeg() const{
 return 60;
     }
+}

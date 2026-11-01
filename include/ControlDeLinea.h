@@ -4,7 +4,7 @@
 #include "Maquina.h"
 
 #include <vector>
-
+namespace planta{
 // Coordina las maquinas de la linea. Las maquinas existen fuera de la linea:
 // la linea solo las conoce (agregacion) y nunca las destruye.
 class ControlDeLinea {
@@ -15,6 +15,7 @@ public:
     bool agregar(Maquina* maquina);
     void ejecutarTurno(int ciclos);
     void imprimirReporte() const;
+};
 };
 
 #endif

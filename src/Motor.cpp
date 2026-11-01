@@ -1,7 +1,7 @@
 #include "Motor.h"
 
 #include <iostream>
-
+namespace planta{
 Motor::Motor(double velocidadMaxRpm): velocidadMaxRpm(velocidadMaxRpm), velocidadActualRpm(0.0){
     if(velocidadMaxRpm <0){
         throw std::invalid_argument("cantidad invalida");
@@ -22,3 +22,4 @@ double Motor::getVelocidad() const {
 }
 
 Motor::~Motor(){}
+}

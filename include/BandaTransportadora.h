@@ -3,7 +3,7 @@
 
 #include "Maquina.h"
 #include "Motor.h"
-
+namespace planta{
 class BandaTransportadora : public Maquina {
 private:
     Motor motor;
@@ -13,6 +13,7 @@ public:
     explicit BandaTransportadora(const std::string& nombre);
 
     int tiempoCicloSeg() const override;
+};
 };
 
 #endif

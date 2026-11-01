@@ -1,7 +1,7 @@
 #include "ControlDeLinea.h"
 
 #include <iostream>
-
+namespace planta{
  bool ControlDeLinea::agregar(Maquina* maquina) {
     if(maquina == nullptr){
         return false;
@@ -26,4 +26,5 @@ void ControlDeLinea::imprimirReporte() const {
     for (const Maquina* m : maquinas) {
         m->mostrarEstado();
     }
+}
 }

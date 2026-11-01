@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-
+namespace planta{
 Pulidora::Pulidora(const std::string& nombre) : Maquina(nombre) {}
 
 
@@ -12,4 +12,5 @@ return 30;
 
     void Pulidora::ejecutarCiclo() {
     std::cout << getNombre()<<": puliendo pieza  " << "\n ";
+}
 }

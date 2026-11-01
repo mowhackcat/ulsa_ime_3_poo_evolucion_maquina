@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <stdexcept>
-
+namespace planta{
 Maquina::Maquina(const std::string& nombre)
     : nombre(nombre), piezasProcesadas(0), tiempoTrabajadoSeg(0) {
         if(nombre.empty()){
@@ -57,3 +57,4 @@ void Maquina::mostrarEstado() const {
     double Maquina::capacidadPorHora() const{
         return 3600.0 / tiempoCicloSeg();
     }
+}
