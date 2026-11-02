@@ -6,6 +6,12 @@ namespace planta{
     if(maquina == nullptr){
         return false;
     }
+        for(size_t i = 0; i < this->maquinas.size(); i ++){
+     if(maquina == this->maquinas[i]){
+std::cout << "false\n";
+return false;
+    }
+}
     maquinas.push_back(maquina);
     return true;
 }

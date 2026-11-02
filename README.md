@@ -42,9 +42,9 @@ el codigo podria no funcionar o la maquina no presentaria el comportamiento debi
 | Destructor de `Maquina` | no existia | virtual ~Maquina() = default | etapa 4 |
 | ¿Se pueden crear objetos `Maquina`? | antes se creaban maquinas que no existian | virtual void procesar() = 0;
     virtual int tiempoCicloSeg() const = 0; | etapa 5 |
-| Relación `ControlDeLinea` - `Maquina` | _____ | _____ | _____ |
-| Relación `Torno` - `Motor` | _____ | _____ | _____ |
-| Relación `BandaTransportadora` - `Motor` | _____ | _____ | _____ |
+| Relación `ControlDeLinea` - `Maquina` | no existia control de linea | composicion agregacion | etapa 3 |
+| Relación `Torno` - `Motor` | no existia motor | relacion composicion | etapa 4 |
+| Relación `BandaTransportadora` - `Motor` | no existia motor | relacion composicion | etapa 8  |
 
 ## Fase 3. Implementar
 
@@ -190,12 +190,11 @@ composicion
 **3.9 Etapa 9. La librería y la prueba final**
 
 a) Después de agregar la `Cortadora`, ¿qué archivos mostró `git status`? ¿Cuántos archivos de la librería tuviste que modificar?
-
-[Inserta aquí tu respuesta]
+modified:   main.cpp new file:   cortadora.h new file:   cortadora.cpp modifique 1
 
 b) ¿Qué pasó al escribir `-lplanta` antes de `src/main.cpp`? ¿Por qué?
 
-[Inserta aquí tu respuesta]
+se lee primero la libreria, primero debe saber como hacer las cosas antes
 
 **3.10 Bitácora de dudas**
 
@@ -211,21 +210,22 @@ b) ¿Qué pasó al escribir `-lplanta` antes de `src/main.cpp`? ¿Por qué?
 
 | # | Caso | Resultado esperado | Resultado obtenido | ¿Pasa? |
 | --- | --- | --- | --- | --- |
-| 1 | Máquina con nombre vacío | Excepción con mensaje claro | _____ | _____ |
-| 2 | Reporte de una línea vacía | "La linea no tiene maquinas" | _____ | _____ |
-| 3 | `agregar(nullptr)` | Devuelve `false` | _____ | _____ |
-| 4 | Reporte antes de ejecutar el turno | 0 piezas, 0 s y capacidad calculada | _____ | _____ |
-| 5 | Turno de 0 ciclos | Nada cambia | _____ | _____ |
-| 6 | Torno con 3 ciclos | 3 piezas, 135 s, 80 pzas/h | _____ | _____ |
-| 7 | Máquina con `tiempoCicloSeg()` igual a 0 | Excepción con mensaje claro | _____ | _____ |
-| 8 | Máquina con `tiempoCicloSeg()` negativo | Excepción con mensaje claro | _____ | _____ |
-| 9 | La misma máquina agregada dos veces | _____ | _____ | _____ |
+| 1 | Máquina con nombre vacío | Excepción con mensaje claro | Error: nombre vacio | lanza el error |
+| 2 | Reporte de una línea vacía | "La linea no tiene maquinas" | La linea no tiene maquinas | se muestra el mensaje y no sucede nada mas |
+| 3 | `agregar(nullptr)` | Devuelve `false` | devuelve false| la linea estara vacia |
+| 4 | Reporte antes de ejecutar el turno | 0 piezas, 0 s y capacidad calculada | Torno T-01 | piezas: 0 | tiempo: 0 | capacidad: 80 pzas/h s | no se le suma el tiempo o numero de piezas |
+| 5 | Turno de 0 ciclos | Nada cambia | Fresadora F-01 | piezas: 0 | tiempo: 0 | capacidad: 60 pzas/h s| no se realiza ningun cambio |
+| 6 | Torno con 3 ciclos | 3 piezas, 135 s, 80 pzas/h | Torno T-01 | piezas: 3 | tiempo: 135 | capacidad: 80 pzas/h s | se realizan bien los calculos |
+| 7 | Máquina con `tiempoCicloSeg()` igual a 0 | Excepción con mensaje claro | Error: Torno T-01: tiempoCicloSeg() debe ser mayor que cero | aparece el mensaje de error |
+| 8 | Máquina con `tiempoCicloSeg()` negativo | Excepción con mensaje claro | Error: Torno T-01: tiempoCicloSeg() debe ser mayor que cero | no acepta numeros negativos |
+| 9 | La misma máquina agregada dos veces | solo aparece una vez| Torno T-01 | piezas: 1 | tiempo: 45 | capacidad: 80 pzas/h s
+Fresadora F-01 | piezas: 1 | tiempo: 60 | capacidad: 60 pzas/h s | solo se reporta una vez |
 
 **4.2 Bitácora de mejoras**
 
 | # | Falla o mejora detectada | Qué cambié | Por qué |
 | --- | --- | --- | --- |
-| 1 | _____ | _____ | _____ |
+| 1 |se podia agregar la misma maquina mas de una vez| modifique la funcion agregar para que revise si se agrego la misma maquina dos veces | solo se debe registrar cada maquina una sola vez |
 | 2 | _____ | _____ | _____ |
 
 Retos opcionales que intenté: _____
@@ -234,7 +234,7 @@ Retos opcionales que intenté: _____
 
 **5.1 Enlace a mi fork**
 
-[Inserta aquí el enlace a tu fork]
+https://github.com/mowhackcat/ulsa_ime_3_poo_evolucion_maquina
 
 ## Cierre y reflexión
 
@@ -242,23 +242,23 @@ Retos opcionales que intenté: _____
 
 | Error | Etapa en que apareció | Restricción que lo impide ahora | ¿Quién lo detecta: el compilador o el programa? |
 | --- | --- | --- | --- |
-| Contadores con valores inválidos | _____ | _____ | _____ |
-| Máquina "fantasma" creada a escondidas | _____ | _____ | _____ |
-| Método que no sobrescribe por un `const` | _____ | _____ | _____ |
-| Máquinas copiadas y "rebanadas" | _____ | _____ | _____ |
-| Destrucción incompleta | _____ | _____ | _____ |
-| Máquina sin `procesar()` propio | _____ | _____ | _____ |
-| Tiempo de ciclo inválido | _____ | _____ | _____ |
-| Derivada que no registra sus piezas | _____ | _____ | _____ |
+| Contadores con valores inválidos | etapa 1 | piezasProcesadas(0) | programa |
+| Máquina "fantasma" creada a escondidas | etapa 1 | proteger los estados de la maquina| programa |
+| Método que no sobrescribe por un `const` | etapa 2 | utilizar override | programa |
+| Máquinas copiadas y "rebanadas" | etapa 3 | utilizar virtual | programa |
+| Destrucción incompleta | etapa 4 | usar un destructor virtual | programa |
+| Máquina sin `procesar()` propio | etapa 5 | el que tenga su propio "procesar" | compilador |
+| Tiempo de ciclo inválido | etapa 1 | serie de condiciones para asegurar que sea valido | compilador |
+| Derivada que no registra sus piezas | etapa 7 | evitar usar atajos y asegurar que se llame la funcion que llame a registrar las piezas | programa |
 
 **6.2 ¿Cuál de los errores fue el más peligroso: el de compilación, la advertencia o el que compilaba sin problemas? ¿Por qué?**
 
-[Inserta aquí tu respuesta]
+el que compilaba sin problemas, por que nos hace pensar que el codigo esta bien escrito
 
 **6.3 ¿Qué aprendiste en esta práctica?**
 
-[Inserta aquí tu respuesta]
+utilizar funciones virtuales, lor errores y usar override
 
 **6.4 ¿Qué cambiarías de tu proceso la próxima vez?**
 
-[Inserta aquí tu respuesta]
+comenzar con virtual desde un inicio

@@ -4,7 +4,7 @@
 #include "Pulidora.h"
 #include "InspeccionVisual.h"
 #include "BandaTransportadora.h"
-
+#include "Cortadora.h"
 #include <iostream>
 
 int main() {
@@ -14,19 +14,23 @@ try{
     planta::Pulidora pulidora("Pulidora P-01");
     planta::InspeccionVisual inspeccion("Inspeccion I-01");
     planta::BandaTransportadora banda("Banda B-01");
+    planta::Cortadora cortadora("cortadora c-01");
     
 
     planta::ControlDeLinea linea;
+
+
     linea.agregar(&torno);
     linea.agregar(&fresadora);
     linea.agregar(&pulidora);
     linea.agregar(&inspeccion);
     linea.agregar(&banda);
+    linea.agregar(&cortadora);
 
+    
 
-    linea.ejecutarTurno(2);
+    linea.ejecutarTurno(1);
     linea.imprimirReporte();
-
 
 
     std::cout << "--- Fin de main ---\n";
